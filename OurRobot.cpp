@@ -2,7 +2,7 @@
 
 OurRobot::OurRobot():
 	//Motors
-	lVictor(1),
+	/*lVictor(1),
 	rVictor(2),
 	
 	//Joysticks
@@ -10,11 +10,11 @@ OurRobot::OurRobot():
 	rStick(2),
 	
 	//Drive
-	myDrive(lVictor, rVictor),
-	mynDrive()
+	myDrive(lVictor, rVictor), */
+	myDrive()
 		
 {
-	myDrive.SetExpiration(0.1);
+	myDrive.m_drive.SetExpiration(0.1);
 	drive = 4;
 	//maxSpeed = 1;
 }

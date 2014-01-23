@@ -27,10 +27,10 @@ public:
 	
 private:
 
-	Victor lVictor, rVictor;
+	/*Victor lVictor, rVictor;
 	Joystick lStick, rStick;
-	RobotDrive myDrive;
-	myArcadeDrive mynDrive;
+	RobotDrive myDrive; */
+	myArcadeDrive myDrive;
 
 	unsigned int drive;
 	float maxSpeed;

@@ -253,6 +253,9 @@
             <contents>
                 <file name="/2014KitBot/OperatorControl.cpp"/>
                 <file name="/2014KitBot/OurRobot.cpp"/>
+                <file name="/2014KitBot/myArcadeDrive.cpp"/>
+                <file name="/2014KitBot/Autonomous.cpp"/>
+                <file name="/2014KitBot/util/Xbox.cpp"/>
             </contents>
         </buildtarget>
     </buildtargets>

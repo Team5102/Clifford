@@ -384,7 +384,9 @@
   C:/windriver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h \
   C:/windriver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
   C:/windriver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
-  C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/myArcadeDrive.hpp
+  C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/myArcadeDrive.hpp \
+  C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Util/Xbox.hpp \
+  C:/windriver/vxworks-6.3/target/h/WPILib/WPILib.h
 
 C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/OurRobot.hpp:
 
@@ -1155,3 +1157,7 @@ C:/windriver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h:
 C:/windriver/vxworks-6.3/target/h/WPILib/WPIErrors.h:
 
 C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/myArcadeDrive.hpp:
+
+C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Util/Xbox.hpp:
+
+C:/windriver/vxworks-6.3/target/h/WPILib/WPILib.h:

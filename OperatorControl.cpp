@@ -7,10 +7,11 @@
 
 void OurRobot::OperatorControl()
 {
-	myDrive.SetSafetyEnabled(true);
+	myDrive.m_drive.SetSafetyEnabled(true);
 	
 	while(IsOperatorControl())
 	{
+		/*
 		switch(drive)
 		{
 			case 1:
@@ -27,7 +28,10 @@ void OurRobot::OperatorControl()
 			myDrive.ArcadeDrive(lStick.GetRawAxis(2), -lStick.GetRawAxis(4));
 			break;
 			
+			*/
+			myDrive.drive();
+			
 			Wait(0.005);
-		}
+		//}
 	}
 }

@@ -13,14 +13,24 @@ myArcadeDrive::myArcadeDrive():
 	rMotor(2),
 	
 	//Forward declaration of drive
-	m_drive(lMotor, rMotor);
+	//m_drive(lMotor, rMotor),
 
-	m_buttonInvert(3),
+	m_stick(1),
+	
+	m_drive(lMotor, rMotor)
+	
+	//m_buttonInvert(3)
 {
-		
+	m_drive.SetExpiration(0.1);
 }
 
-myArcadeDrive::invert(Joystick toInvert)
+void myArcadeDrive::drive()
+{
+	m_drive.ArcadeDrive(m_stick.getLeftStickY(), -m_stick.getRightStickX());
+}
+
+myArcadeDrive::~myArcadeDrive()
 {
 	
 }
+	

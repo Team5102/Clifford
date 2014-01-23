@@ -7,6 +7,12 @@
 /*       -fdollars-in-identifiers flag.                   */
 
 
+void _GLOBAL__I__ZN13myArcadeDriveC2Ev();
+
+void _GLOBAL__I__ZN4XboxC2Ev();
+
+void _GLOBAL__I__ZN8OurRobot10AutonomousEv();
+
 void _GLOBAL__I__ZN8OurRobot15OperatorControlEv();
 
 void _GLOBAL__I__ZN8OurRobotC2Ev();
@@ -66,6 +72,9 @@ void _GLOBAL__I__ZN11StringArray19STRING_ARRAY_RAW_IDE();
 extern void (*_ctors[])();
 void (*_ctors[])() =
     {
+    _GLOBAL__I__ZN13myArcadeDriveC2Ev,
+    _GLOBAL__I__ZN4XboxC2Ev,
+    _GLOBAL__I__ZN8OurRobot10AutonomousEv,
     _GLOBAL__I__ZN8OurRobot15OperatorControlEv,
     _GLOBAL__I__ZN8OurRobotC2Ev,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
@@ -96,6 +105,12 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN11StringArray19STRING_ARRAY_RAW_IDE,
     0
     };
+
+void _GLOBAL__D__ZN13myArcadeDriveC2Ev();
+
+void _GLOBAL__D__ZN4XboxC2Ev();
+
+void _GLOBAL__D__ZN8OurRobot10AutonomousEv();
 
 void _GLOBAL__D__ZN8OurRobot15OperatorControlEv();
 
@@ -146,6 +161,9 @@ void _GLOBAL__D__ZN11StringArray19STRING_ARRAY_RAW_IDE();
 extern void (*_dtors[])();
 void (*_dtors[])() =
     {
+    _GLOBAL__D__ZN13myArcadeDriveC2Ev,
+    _GLOBAL__D__ZN4XboxC2Ev,
+    _GLOBAL__D__ZN8OurRobot10AutonomousEv,
     _GLOBAL__D__ZN8OurRobot15OperatorControlEv,
     _GLOBAL__D__ZN8OurRobotC2Ev,
     _GLOBAL__D__ZN9Scheduler9_instanceE,

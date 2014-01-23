@@ -7,32 +7,37 @@
 #define MY_ARCADEDRIVE_HPP_
 
 #include "WPILib.h"
+#include "Util/Xbox.hpp"
 
-class myArcadeDrive : public RobotDrive
+class myArcadeDrive
 {
+private:
 	
+	Talon lMotor, rMotor;
+	
+	Xbox m_stick;
+	
+	//Joystick m_stick;
+
+	//uint32_t m_buttonInvert;
 public:
 	
 	myArcadeDrive();
 	
-	myArcadeDrive(uint32_t leftMotor, uint32_t rightMotor);
+	//myArcadeDrive(uint32_t leftMotor, uint32_t rightMotor);
 	
-	myArcadeDrive(uint32_t leftMotor, uint32_t rightMotor, Joystick joystick);
+	//myArcadeDrive(uint32_t leftMotor, uint32_t rightMotor, Joystick joystick);
 		
 	~myArcadeDrive();
 	
+	void drive();
+	
 	void invert(Joystick toInvert);
 	
-	
-private:
-	
-	Victor lMotor, rMotor;
-	
 	RobotDrive m_drive;
-	
-	Joystick m_stick;
+		
+private:
 
-	uint32_t m_buttonInvert;
 };
 	
 #endif //MY_ARCADEDRIVE_HPP_
