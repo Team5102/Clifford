@@ -178,11 +178,21 @@ endif
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
+2014KitBot_partialImage/$(MODE_DIR)/Objects/Axis.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/util/Axis.cpp
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+2014KitBot_partialImage/$(MODE_DIR)/Objects/Camera.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Camera.cpp
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
 OBJECTS_2014KitBot_partialImage = 2014KitBot_partialImage/$(MODE_DIR)/Objects/OperatorControl.o \
 	 2014KitBot_partialImage/$(MODE_DIR)/Objects/OurRobot.o \
 	 2014KitBot_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.o \
 	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Autonomous.o \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Xbox.o
+	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Xbox.o \
+	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Axis.o \
+	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Camera.o
 
 2014KitBot_partialImage/$(MODE_DIR)/2014KitBot_partialImage.o : $(OBJECTS_2014KitBot_partialImage)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X  -o "$@" $(OBJECTS_2014KitBot_partialImage) $(LIBPATH) $(LIBS) $(ADDED_LIBPATH) $(ADDED_LIBS)  && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
@@ -195,7 +205,8 @@ _clean :: 2014KitBot_partialImage/$(MODE_DIR)/2014KitBot_partialImage_clean
 	$(TRACE_FLAG)if [ -d "2014KitBot_partialImage" ]; then cd "2014KitBot_partialImage"; rm -rf $(MODE_DIR); fi
 
 DEP_FILES := 2014KitBot_partialImage/$(MODE_DIR)/Objects/OperatorControl.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/OurRobot.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.d \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Autonomous.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/Xbox.d
+	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Autonomous.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/Xbox.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/Axis.d \
+	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Camera.d
 -include $(DEP_FILES)
 
 

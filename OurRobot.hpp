@@ -4,6 +4,7 @@
 #include "WPILib.h"
 
 #include "myArcadeDrive.hpp"
+#include "Camera.hpp"
 
 class OurRobot : public SimpleRobot
 {
@@ -27,12 +28,10 @@ public:
 	
 private:
 
-	/*Victor lVictor, rVictor;
-	Joystick lStick, rStick;
-	RobotDrive myDrive; */
 	myArcadeDrive myDrive;
-
-	unsigned int drive;
+	
+	Camera myCamera;
+	
 	float maxSpeed;
 	
 };

@@ -256,6 +256,8 @@
                 <file name="/2014KitBot/myArcadeDrive.cpp"/>
                 <file name="/2014KitBot/Autonomous.cpp"/>
                 <file name="/2014KitBot/util/Xbox.cpp"/>
+                <file name="/2014KitBot/util/Axis.cpp"/>
+                <file name="/2014KitBot/Camera.cpp"/>
             </contents>
         </buildtarget>
     </buildtargets>

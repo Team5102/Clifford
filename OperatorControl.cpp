@@ -11,27 +11,7 @@ void OurRobot::OperatorControl()
 	
 	while(IsOperatorControl())
 	{
-		/*
-		switch(drive)
-		{
-			case 1:
-			myDrive.ArcadeDrive(lStick);
-			break;
-			case 2:
-			myDrive.TankDrive(lStick, rStick);
-			break;
-			case 3:
-			myDrive.ArcadeDrive(lStick.GetY(), -lStick.GetX());
-			break;
-			//Configuration for default xbox controller;
-			case 4:
-			myDrive.ArcadeDrive(lStick.GetRawAxis(2), -lStick.GetRawAxis(4));
-			break;
-			
-			*/
-			myDrive.drive();
-			
-			Wait(0.005);
-		//}
+		myDrive.teleop();
+		Wait(0.005);
 	}
 }

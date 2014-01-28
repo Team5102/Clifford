@@ -19,15 +19,28 @@ myArcadeDrive::myArcadeDrive():
 	
 	m_drive(lMotor, rMotor)
 	
-	//m_buttonInvert(3)
-{
+ {
 	m_drive.SetExpiration(0.1);
 }
 
-void myArcadeDrive::drive()
+void myArcadeDrive::teleop()
 {
+	//drive 
 	m_drive.ArcadeDrive(m_stick.getLeftStickY(), -m_stick.getRightStickX());
-}
+	
+	if(m_stick.RT())
+	{
+		m_drive.SetMaxOutput(.5);
+	}
+	else if(m_stick.LT())
+	{
+		m_drive.SetMaxOutput(1);
+	}else if(m_stick.A())
+	{
+		m_axis.get();
+	}
+	
+}	
 
 myArcadeDrive::~myArcadeDrive()
 {

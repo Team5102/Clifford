@@ -11,6 +11,8 @@ void _GLOBAL__I__ZN13myArcadeDriveC2Ev();
 
 void _GLOBAL__I__ZN4XboxC2Ev();
 
+void _GLOBAL__I__ZN6CameraC2Ev();
+
 void _GLOBAL__I__ZN8OurRobot10AutonomousEv();
 
 void _GLOBAL__I__ZN8OurRobot15OperatorControlEv();
@@ -74,6 +76,7 @@ void (*_ctors[])() =
     {
     _GLOBAL__I__ZN13myArcadeDriveC2Ev,
     _GLOBAL__I__ZN4XboxC2Ev,
+    _GLOBAL__I__ZN6CameraC2Ev,
     _GLOBAL__I__ZN8OurRobot10AutonomousEv,
     _GLOBAL__I__ZN8OurRobot15OperatorControlEv,
     _GLOBAL__I__ZN8OurRobotC2Ev,
@@ -109,6 +112,8 @@ void (*_ctors[])() =
 void _GLOBAL__D__ZN13myArcadeDriveC2Ev();
 
 void _GLOBAL__D__ZN4XboxC2Ev();
+
+void _GLOBAL__D__ZN6CameraC2Ev();
 
 void _GLOBAL__D__ZN8OurRobot10AutonomousEv();
 
@@ -163,6 +168,7 @@ void (*_dtors[])() =
     {
     _GLOBAL__D__ZN13myArcadeDriveC2Ev,
     _GLOBAL__D__ZN4XboxC2Ev,
+    _GLOBAL__D__ZN6CameraC2Ev,
     _GLOBAL__D__ZN8OurRobot10AutonomousEv,
     _GLOBAL__D__ZN8OurRobot15OperatorControlEv,
     _GLOBAL__D__ZN8OurRobotC2Ev,

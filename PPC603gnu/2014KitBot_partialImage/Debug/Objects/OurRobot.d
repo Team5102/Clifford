@@ -386,7 +386,13 @@
   C:/windriver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
   C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/myArcadeDrive.hpp \
   C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Util/Xbox.hpp \
-  C:/windriver/vxworks-6.3/target/h/WPILib/WPILib.h
+  C:/windriver/vxworks-6.3/target/h/WPILib/WPILib.h \
+  C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/util/Axis.hpp \
+  C:/windriver/vxworks-6.3/target/h/WPILib/Servo.h \
+  C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Camera.hpp \
+  C:/windriver/vxworks-6.3/target/h/WPILib/Vision2009/TrackAPI.h \
+  C:/windriver/vxworks-6.3/target/h/WPILib/Vision2009/VisionAPI.h \
+  C:/windriver/vxworks-6.3/target/h/WPILib/Vision2009/BaeUtilities.h
 
 C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/OurRobot.hpp:
 
@@ -1161,3 +1167,15 @@ C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/myArcadeDrive.hpp:
 C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Util/Xbox.hpp:
 
 C:/windriver/vxworks-6.3/target/h/WPILib/WPILib.h:
+
+C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/util/Axis.hpp:
+
+C:/windriver/vxworks-6.3/target/h/WPILib/Servo.h:
+
+C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Camera.hpp:
+
+C:/windriver/vxworks-6.3/target/h/WPILib/Vision2009/TrackAPI.h:
+
+C:/windriver/vxworks-6.3/target/h/WPILib/Vision2009/VisionAPI.h:
+
+C:/windriver/vxworks-6.3/target/h/WPILib/Vision2009/BaeUtilities.h:

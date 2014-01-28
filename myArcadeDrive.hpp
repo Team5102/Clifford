@@ -7,7 +7,9 @@
 #define MY_ARCADEDRIVE_HPP_
 
 #include "WPILib.h"
+
 #include "Util/Xbox.hpp"
+#include "util/Axis.hpp"
 
 class myArcadeDrive
 {
@@ -17,8 +19,6 @@ private:
 	
 	Xbox m_stick;
 	
-	//Joystick m_stick;
-
 	//uint32_t m_buttonInvert;
 public:
 	
@@ -30,11 +30,13 @@ public:
 		
 	~myArcadeDrive();
 	
-	void drive();
+	void teleop();
 	
 	void invert(Joystick toInvert);
 	
 	RobotDrive m_drive;
+	
+	Axis m_axis;
 		
 private:
 
