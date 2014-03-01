@@ -11,3 +11,8 @@
 *.lai
 *.la
 *.a
+
+*.project
+*.cproject
+*.wrmakefile
+*.wrproject
