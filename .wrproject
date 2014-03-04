@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wrxml>
     <properties platform="VxWorks" platform_name="vxworks-6.3" root="1" type="DownloadableKernelModuleProject"/>
     <attributes>
@@ -244,20 +244,17 @@
         </mapAttribute>
     </attributes>
     <buildtargets>
-        <buildtarget buildtool="Linker" name="2014KitBot" passed="false" targetname="2014KitBot">
+        <buildtarget buildtool="Linker" name="Clifford_partialImage" passed="false" targetname="Clifford_partialImage">
             <contents>
-                <buildtargetreference name="/2014KitBot/2014KitBot_partialImage"/>
-            </contents>
-        </buildtarget>
-        <buildtarget buildtool="Partial Image Linker" name="2014KitBot_partialImage" passed="true" targetname="2014KitBot_partialImage">
-            <contents>
-                <file name="/2014KitBot/OperatorControl.cpp"/>
-                <file name="/2014KitBot/OurRobot.cpp"/>
-                <file name="/2014KitBot/myArcadeDrive.cpp"/>
-                <file name="/2014KitBot/Autonomous.cpp"/>
-                <file name="/2014KitBot/util/Xbox.cpp"/>
-                <file name="/2014KitBot/util/Axis.cpp"/>
-                <file name="/2014KitBot/Camera.cpp"/>
+                <file name="/Clifford/Autonomous.cpp"/>
+                <file name="/Clifford/Camera.cpp"/>
+                <file name="/Clifford/myArcadeDrive.cpp"/>
+                <file name="/Clifford/OperatorControl.cpp"/>
+                <file name="/Clifford/OurRobot.cpp"/>
+                <file name="/Clifford/util/Axis.cpp"/>
+                <file name="/Clifford/util/Xbox.cpp"/>
+                <file name="/Clifford/util/DriverStation.cpp"/>
+                <file name="/Clifford/Shooter.cpp"/>
             </contents>
         </buildtarget>
     </buildtargets>

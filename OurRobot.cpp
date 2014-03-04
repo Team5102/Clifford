@@ -2,7 +2,8 @@
 
 OurRobot::OurRobot():
 
-	myDrive()
+	myDrive(),
+	myShooter()
 {
 	myDrive.m_drive.SetExpiration(0.1);
 }
@@ -17,6 +18,11 @@ void OurRobot::Test()
 {
 	//TODO: Remove me and generate a file for it.
 	std::cout << "Test mode enabled";
+}
+
+void OurRobot::RobotInit()
+{
+	std::cout << "Robot Init. Now leave me alone!";
 }
 
 OurRobot::~OurRobot(){}

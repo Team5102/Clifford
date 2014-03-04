@@ -37,7 +37,8 @@ void myArcadeDrive::teleop()
 		m_drive.SetMaxOutput(1);
 	}else if(m_stick.A())
 	{
-		m_axis.get();
+		//	m_axis.get();
+		std::cout << "A";
 	}
 	
 }	

@@ -12,6 +12,7 @@ void OurRobot::OperatorControl()
 	while(IsOperatorControl())
 	{
 		myDrive.teleop();
+		
 		Wait(0.005);
 	}
 }

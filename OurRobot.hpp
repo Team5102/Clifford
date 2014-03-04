@@ -5,6 +5,7 @@
 
 #include "myArcadeDrive.hpp"
 #include "Camera.hpp"
+#include "Shooter.hpp"
 
 class OurRobot : public SimpleRobot
 {
@@ -22,13 +23,15 @@ public:
     void Test();
     
     //Unused functions - Don't uncomment these!
-    //void RobotInit();
+    void RobotInit();
 	//void RobotMain();
 	//void StartCompetition();
 	
 private:
 
 	myArcadeDrive myDrive;
+	
+	Shooter myShooter;
 	
 	Camera myCamera;
 	

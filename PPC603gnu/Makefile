@@ -31,8 +31,8 @@ else
 MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
-PRJ_ROOT_DIR := C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot
-WS_ROOT_DIR := C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0
+WS_ROOT_DIR := C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver
+PRJ_ROOT_DIR := $(WS_ROOT_DIR)/Clifford
 
 
 
@@ -56,6 +56,8 @@ IDE_INCLUDES = -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/WPILib -I$(WIND_B
 
 IDE_LIBRARIES = $(WIND_BASE)/target/lib/WPILib.a 
 
+IDE_DEFINES = 
+
 
 
 #BuildTool flags
@@ -77,136 +79,99 @@ endif
 
 
 #Project Targets
-PROJECT_TARGETS = 2014KitBot/$(MODE_DIR)/2014KitBot.out \
-	 2014KitBot_partialImage/$(MODE_DIR)/2014KitBot_partialImage.o
+PROJECT_TARGETS = Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage.out
 
 
 #Rules
 
-# 2014KitBot
+# Clifford_partialImage
 ifeq ($(DEBUG_MODE),1)
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -g
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -g
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -g
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -g
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -g
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -g
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -g
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -g
 else
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -O2 -fstrength-reduce -fno-builtin
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -O2 -fstrength-reduce -fno-builtin
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -O2 -fstrength-reduce -fno-builtin
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
-2014KitBot/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -O2 -fstrength-reduce -fno-builtin
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -O2 -fstrength-reduce -fno-builtin
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -O2 -fstrength-reduce -fno-builtin
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -O2 -fstrength-reduce -fno-builtin
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
+Clifford_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -O2 -fstrength-reduce -fno-builtin
 endif
-2014KitBot/$(MODE_DIR)/% : IDE_INCLUDES = -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/WPILib -I$(WIND_BASE)/target/h/wrn/coreip 
-2014KitBot/$(MODE_DIR)/% : IDE_LIBRARIES = $(WIND_BASE)/target/lib/WPILib.a 
-2014KitBot/$(MODE_DIR)/% : PROJECT_TYPE = DKM
-2014KitBot/$(MODE_DIR)/% : DEFINES = 
-2014KitBot/$(MODE_DIR)/% : EXPAND_DBG = 0
-2014KitBot/$(MODE_DIR)/% : VX_CPU_FAMILY = ppc
-2014KitBot/$(MODE_DIR)/% : CPU = PPC603
-2014KitBot/$(MODE_DIR)/% : TOOL_FAMILY = gnu
-2014KitBot/$(MODE_DIR)/% : TOOL = gnu
-2014KitBot/$(MODE_DIR)/% : TOOL_PATH = 
-2014KitBot/$(MODE_DIR)/% : CC_ARCH_SPEC = -mcpu=603 -mstrict-align -mno-implicit-fp -mlongcall
-2014KitBot/$(MODE_DIR)/% : LIBPATH = 
-2014KitBot/$(MODE_DIR)/% : LIBS = 
-2014KitBot/$(MODE_DIR)/% : OBJ_DIR := 2014KitBot/$(MODE_DIR)
+Clifford_partialImage/$(MODE_DIR)/% : IDE_INCLUDES = -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/WPILib -I$(WIND_BASE)/target/h/wrn/coreip 
+Clifford_partialImage/$(MODE_DIR)/% : IDE_LIBRARIES = $(WIND_BASE)/target/lib/WPILib.a 
+Clifford_partialImage/$(MODE_DIR)/% : IDE_DEFINES = 
+Clifford_partialImage/$(MODE_DIR)/% : PROJECT_TYPE = DKM
+Clifford_partialImage/$(MODE_DIR)/% : DEFINES = 
+Clifford_partialImage/$(MODE_DIR)/% : EXPAND_DBG = 0
+Clifford_partialImage/$(MODE_DIR)/% : VX_CPU_FAMILY = ppc
+Clifford_partialImage/$(MODE_DIR)/% : CPU = PPC603
+Clifford_partialImage/$(MODE_DIR)/% : TOOL_FAMILY = gnu
+Clifford_partialImage/$(MODE_DIR)/% : TOOL = gnu
+Clifford_partialImage/$(MODE_DIR)/% : TOOL_PATH = 
+Clifford_partialImage/$(MODE_DIR)/% : CC_ARCH_SPEC = -mcpu=603 -mstrict-align -mno-implicit-fp -mlongcall
+Clifford_partialImage/$(MODE_DIR)/% : LIBPATH = 
+Clifford_partialImage/$(MODE_DIR)/% : LIBS = 
+Clifford_partialImage/$(MODE_DIR)/% : OBJ_DIR := Clifford_partialImage/$(MODE_DIR)
 
-OBJECTS_2014KitBot = 2014KitBot_partialImage/$(MODE_DIR)/2014KitBot_partialImage.o
-
-2014KitBot/$(MODE_DIR)/2014KitBot.out : $(OBJECTS_2014KitBot)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@";rm -f "$@";nmppc $(OBJECTS_2014KitBot) $(IDE_LIBRARIES) | tclsh $(WIND_BASE)/host/resource/hutils/tcl/munch.tcl -c ppc > $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc $(DEBUGFLAGS_Linker) $(CC_ARCH_SPEC) -fdollars-in-identifiers -Wall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES)  -o $(OBJ_DIR)/ctdt.o -c $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X -T $(WIND_BASE)/target/h/tool/gnu/ldscripts/link.OUT -o "$@" $(OBJ_DIR)/ctdt.o $(OBJECTS_2014KitBot) $(IDE_LIBRARIES) $(LIBPATH) $(LIBS)  $(ADDED_LIBPATH) $(ADDED_LIBS) && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
-
-2014KitBot/$(MODE_DIR)/2014KitBot_compile_file : $(FILE) ;
-
-_clean :: 2014KitBot/$(MODE_DIR)/2014KitBot_clean
-
-2014KitBot/$(MODE_DIR)/2014KitBot_clean : 
-	$(TRACE_FLAG)if [ -d "2014KitBot" ]; then cd "2014KitBot"; rm -rf $(MODE_DIR); fi
-
-
-# 2014KitBot_partialImage
-ifeq ($(DEBUG_MODE),1)
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -g
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -g
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -g
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -g
-else
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -O2 -fstrength-reduce -fno-builtin
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -O2 -fstrength-reduce -fno-builtin
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -O2 -fstrength-reduce -fno-builtin
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
-2014KitBot_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -O2 -fstrength-reduce -fno-builtin
-endif
-2014KitBot_partialImage/$(MODE_DIR)/% : IDE_INCLUDES = -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/WPILib -I$(WIND_BASE)/target/h/wrn/coreip 
-2014KitBot_partialImage/$(MODE_DIR)/% : IDE_LIBRARIES = $(WIND_BASE)/target/lib/WPILib.a 
-2014KitBot_partialImage/$(MODE_DIR)/% : PROJECT_TYPE = DKM
-2014KitBot_partialImage/$(MODE_DIR)/% : DEFINES = 
-2014KitBot_partialImage/$(MODE_DIR)/% : EXPAND_DBG = 0
-2014KitBot_partialImage/$(MODE_DIR)/% : VX_CPU_FAMILY = ppc
-2014KitBot_partialImage/$(MODE_DIR)/% : CPU = PPC603
-2014KitBot_partialImage/$(MODE_DIR)/% : TOOL_FAMILY = gnu
-2014KitBot_partialImage/$(MODE_DIR)/% : TOOL = gnu
-2014KitBot_partialImage/$(MODE_DIR)/% : TOOL_PATH = 
-2014KitBot_partialImage/$(MODE_DIR)/% : CC_ARCH_SPEC = -mcpu=603 -mstrict-align -mno-implicit-fp -mlongcall
-2014KitBot_partialImage/$(MODE_DIR)/% : LIBPATH = 
-2014KitBot_partialImage/$(MODE_DIR)/% : LIBS = 
-2014KitBot_partialImage/$(MODE_DIR)/% : OBJ_DIR := 2014KitBot_partialImage/$(MODE_DIR)
-
-2014KitBot_partialImage/$(MODE_DIR)/Objects/OperatorControl.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/OperatorControl.cpp
+Clifford_partialImage/$(MODE_DIR)/Objects/Autonomous.o : $(PRJ_ROOT_DIR)/Autonomous.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-2014KitBot_partialImage/$(MODE_DIR)/Objects/OurRobot.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/OurRobot.cpp
+Clifford_partialImage/$(MODE_DIR)/Objects/Camera.o : $(PRJ_ROOT_DIR)/Camera.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-2014KitBot_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/myArcadeDrive.cpp
+Clifford_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.o : $(PRJ_ROOT_DIR)/myArcadeDrive.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-2014KitBot_partialImage/$(MODE_DIR)/Objects/Autonomous.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Autonomous.cpp
+Clifford_partialImage/$(MODE_DIR)/Objects/OperatorControl.o : $(PRJ_ROOT_DIR)/OperatorControl.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-2014KitBot_partialImage/$(MODE_DIR)/Objects/Xbox.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/util/Xbox.cpp
+Clifford_partialImage/$(MODE_DIR)/Objects/OurRobot.o : $(PRJ_ROOT_DIR)/OurRobot.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-2014KitBot_partialImage/$(MODE_DIR)/Objects/Axis.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/util/Axis.cpp
+Clifford_partialImage/$(MODE_DIR)/Objects/Axis.o : $(PRJ_ROOT_DIR)/util/Axis.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-2014KitBot_partialImage/$(MODE_DIR)/Objects/Camera.o : C:/Users/User/Desktop/Coding/Robotics/WindRiver3.0/2014KitBot/Camera.cpp
+Clifford_partialImage/$(MODE_DIR)/Objects/Xbox.o : $(PRJ_ROOT_DIR)/util/Xbox.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_2014KitBot_partialImage = 2014KitBot_partialImage/$(MODE_DIR)/Objects/OperatorControl.o \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/OurRobot.o \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.o \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Autonomous.o \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Xbox.o \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Axis.o \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Camera.o
+Clifford_partialImage/$(MODE_DIR)/Objects/DriverStation.o : $(PRJ_ROOT_DIR)/util/DriverStation.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
-2014KitBot_partialImage/$(MODE_DIR)/2014KitBot_partialImage.o : $(OBJECTS_2014KitBot_partialImage)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X  -o "$@" $(OBJECTS_2014KitBot_partialImage) $(LIBPATH) $(LIBS) $(ADDED_LIBPATH) $(ADDED_LIBS)  && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
 
-2014KitBot_partialImage/$(MODE_DIR)/2014KitBot_partialImage_compile_file : $(FILE) ;
+OBJECTS_Clifford_partialImage = Clifford_partialImage/$(MODE_DIR)/Objects/Autonomous.o \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/Camera.o \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.o \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/OperatorControl.o \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/OurRobot.o \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/Axis.o \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/Xbox.o \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/DriverStation.o
 
-_clean :: 2014KitBot_partialImage/$(MODE_DIR)/2014KitBot_partialImage_clean
+Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage.out : $(OBJECTS_Clifford_partialImage)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@";rm -f "$@";nmppc $(OBJECTS_Clifford_partialImage) $(IDE_LIBRARIES) | tclsh $(WIND_BASE)/host/resource/hutils/tcl/munch.tcl -c ppc > $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc $(DEBUGFLAGS_Linker) $(CC_ARCH_SPEC) -fdollars-in-identifiers -Wall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES)  -o $(OBJ_DIR)/ctdt.o -c $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X -T $(WIND_BASE)/target/h/tool/gnu/ldscripts/link.OUT -o "$@" $(OBJ_DIR)/ctdt.o $(OBJECTS_Clifford_partialImage) $(IDE_LIBRARIES) $(LIBPATH) $(LIBS)  $(ADDED_LIBPATH) $(ADDED_LIBS) && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
 
-2014KitBot_partialImage/$(MODE_DIR)/2014KitBot_partialImage_clean : 
-	$(TRACE_FLAG)if [ -d "2014KitBot_partialImage" ]; then cd "2014KitBot_partialImage"; rm -rf $(MODE_DIR); fi
+Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage_compile_file : $(FILE) ;
 
-DEP_FILES := 2014KitBot_partialImage/$(MODE_DIR)/Objects/OperatorControl.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/OurRobot.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.d \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Autonomous.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/Xbox.d 2014KitBot_partialImage/$(MODE_DIR)/Objects/Axis.d \
-	 2014KitBot_partialImage/$(MODE_DIR)/Objects/Camera.d
+_clean :: Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage_clean
+
+Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage_clean : 
+	$(TRACE_FLAG)if [ -d "Clifford_partialImage" ]; then cd "Clifford_partialImage"; rm -rf $(MODE_DIR); fi
+
+force : 
+
+DEP_FILES := Clifford_partialImage/$(MODE_DIR)/Objects/Autonomous.d Clifford_partialImage/$(MODE_DIR)/Objects/Camera.d Clifford_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.d \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/OperatorControl.d Clifford_partialImage/$(MODE_DIR)/Objects/OurRobot.d Clifford_partialImage/$(MODE_DIR)/Objects/Axis.d \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/Xbox.d Clifford_partialImage/$(MODE_DIR)/Objects/DriverStation.d
 -include $(DEP_FILES)
 
 
