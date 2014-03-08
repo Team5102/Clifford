@@ -3,15 +3,21 @@
 OurRobot::OurRobot():
 
 	myDrive(),
-	myShooter()
+	myShooter(),
+	myCompressor(1, 1) //TODO: check the switch channel
 {
 	myDrive.m_drive.SetExpiration(0.1);
 }
 
 void OurRobot::Disabled()
 {
-	//TODO: Remove me and generate a file for it.
+	myCompressor.Stop();
 	std::cout << "Robot is disabled";
+	while(IsDisabled())
+	{
+		Wait(0.01);
+	}
+	//TODO: Remove me and generate a file for it.
 }
 
 void OurRobot::Test()
@@ -22,7 +28,7 @@ void OurRobot::Test()
 
 void OurRobot::RobotInit()
 {
-	std::cout << "Robot Init. Now leave me alone!";
+	std::cout << "Robot Init";
 }
 
 OurRobot::~OurRobot(){}

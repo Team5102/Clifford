@@ -14,7 +14,7 @@ public:
 private:
 
 	int maxRotations;
-	
+
 	Talon arm, claw, shooter;
 	
 	Encoder shooterEncoder;
@@ -22,6 +22,10 @@ private:
 	Xbox m_stick;
 	
 	Timer reload;
+	
+	//DoubleSolenoid clawPiston;
+		
+	Solenoid clawPiston, clawPiston2;
 	
 	DigitalInput shooterLimit;
 	

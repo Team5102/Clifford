@@ -257,5 +257,10 @@
                 <file name="/Clifford/Shooter.cpp"/>
             </contents>
         </buildtarget>
+        <buildtarget buildtool="Linker" name="Clifford" passed="false" targetname="Clifford">
+            <contents>
+                <folder name="/Clifford" recursive="true"/>
+            </contents>
+        </buildtarget>
     </buildtargets>
 </wrxml>

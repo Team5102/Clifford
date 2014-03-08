@@ -1,5 +1,6 @@
 Clifford_partialImage/Debug/Objects/DriverStation.o:  \
  C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/DriverStation.cpp \
+  C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/DriverStation.hpp \
   c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/iostream \
   c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/istream \
   c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/ostream \
@@ -380,6 +381,8 @@ Clifford_partialImage/Debug/Objects/DriverStation.o:  \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h
+
+C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/DriverStation.hpp:
 
 c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/iostream:
 

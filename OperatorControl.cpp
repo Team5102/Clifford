@@ -7,11 +7,14 @@
 
 void OurRobot::OperatorControl()
 {
-	myDrive.m_drive.SetSafetyEnabled(true);
+	//myDrive.m_drive.SetSafetyEnabled(true);
 	
-	while(IsOperatorControl())
+	myCompressor.Start();
+	
+	while(IsOperatorControl() && IsEnabled())
 	{
 		myDrive.teleop();
+		myShooter.teleop();
 		
 		Wait(0.005);
 	}

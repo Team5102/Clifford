@@ -387,10 +387,14 @@ Clifford_partialImage/Debug/Objects/Autonomous.o:  \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/Axis.hpp \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h \
+  C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/DriverStation.hpp \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/Camera.hpp \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/TrackAPI.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/VisionAPI.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/BaeUtilities.h
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/BaeUtilities.h \
+  C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/Shooter.hpp \
+  C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/Xbox.hpp
 
 C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/OurRobot.hpp:
 
@@ -1166,6 +1170,10 @@ C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/Axis.hpp:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h:
 
+C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/DriverStation.hpp:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
+
 C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/Camera.hpp:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/TrackAPI.h:
@@ -1173,3 +1181,7 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/TrackAPI.h:
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/VisionAPI.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/BaeUtilities.h:
+
+C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/Shooter.hpp:
+
+C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/Xbox.hpp:

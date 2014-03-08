@@ -1,11 +1,14 @@
 #include "Shooter.hpp"
 
 Shooter::Shooter():
-	arm(3),
-	claw(4),
+	arm(8),
+	claw(7),
 	shooter(5),
-	shooterEncoder(1, 2, false, k4x),
+	shooterEncoder(1, 2, false),
 	m_stick(2), //Default port for the arm.
+	//clawPiston(8,7),
+	clawPiston(8),
+	clawPiston2(7),
 	shooterLimit(1)
 {
 	
@@ -16,6 +19,7 @@ Shooter::Shooter():
 	shooterEncoder.SetReverseDirection(false);
 	shooterEncoder.SetSamplesToAverage(7);
 	
+	clawPiston.Set(DoubleSolenoid::kOff);
 	
 	maxRotations = 250;
 }
@@ -23,7 +27,7 @@ Shooter::Shooter():
 void Shooter::teleop()
 {
 	/* Driver Input (arm & claw) */ 
-	arm.Set(m_stick.getLeftStickClick()); //TODO: Add deadband
+	arm.Set(m_stick.getLeftStickY()); //TODO: Add deadband
 	claw.Set(m_stick.getRightStickY());
 	
 	/* Limit Switch */
@@ -35,11 +39,16 @@ void Shooter::teleop()
 		hasBall = false;
 	}
 	
-	/* User Input */
-	if(m_stick.getButtonA() && hasBall)
+	/* User Input 
+ 	if(m_stick.getButtonA() && hasBall)
 	{
 		//Shoot!
 		isLoaded = false;
+	} */
+	if(m_stick.getButtonA())
+	{
+		clawPiston.Set(true);
+		clawPiston2.Set(false);
 	}
 	else if(m_stick.getButtonX())
 	{
@@ -49,13 +58,22 @@ void Shooter::teleop()
 	{
 		//PID loop for the start position
 	}
-
+	else if(m_stick.getButtonY())
+	{
+		clawPiston.Set(false);
+		clawPiston2.Set(true);
+	}
+	else if(m_stick.getButtonSelect())
+	{
+		//Pass
+	}
 	
+ 	
 	/* Encoder loop (winch) */
 	int count = shooterEncoder.Get();
 
 	//Powers the shooter winch. 
-	if(count < maxShooter && count > maxShooter - 15)//TODO remove second argument. Calibrate this nonsense.
+	if(count < maxRotations && count > maxRotations - 15)//TODO remove second argument. Calibrate this nonsense.
 	{
 		shooter.Set(-.1);
 	}

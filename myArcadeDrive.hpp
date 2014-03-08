@@ -10,6 +10,10 @@
 
 #include "Util/Xbox.hpp"
 #include "util/Axis.hpp"
+#include "util/DriverStation.hpp"
+
+#include <iostream>
+#include "iostream"
 
 class myArcadeDrive
 {
@@ -32,14 +36,15 @@ public:
 	
 	void teleop();
 	
+	bool toggle;
+	
 	void invert(Joystick toInvert);
 	
 	RobotDrive m_drive;
 	
-	Axis m_axis;
-		
-private:
+	DigitalInput pot;
 
+	DoubleSolenoid shifter;
 };
 	
 #endif //MY_ARCADEDRIVE_HPP_

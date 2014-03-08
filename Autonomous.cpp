@@ -5,11 +5,11 @@ void OurRobot::Autonomous()
 	
 	myDrive.m_drive.SetSafetyEnabled(false);
 
-	while(IsAutonomous())
+	while(IsAutonomous() && IsEnabled())
 	{
-		myCamera.update();
-		Wait(0.01);
+		//Fuck bitches.
+		
+		//Then get money.
 	}
 	
 }
-

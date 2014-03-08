@@ -385,7 +385,9 @@ Clifford_partialImage/Debug/Objects/myArcadeDrive.o:  \
   C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/Util/Xbox.hpp \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/Axis.hpp \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h \
+  C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/DriverStation.hpp \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h
 
 C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/myArcadeDrive.hpp:
 
@@ -1158,3 +1160,7 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/Axis.hpp:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h:
+
+C:/Users/Team\ 5102/Desktop/Coding/Workspaces/windriver/Clifford/util/DriverStation.hpp:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:

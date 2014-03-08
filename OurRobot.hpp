@@ -33,6 +33,8 @@ private:
 	
 	Shooter myShooter;
 	
+	Compressor myCompressor;
+	
 	Camera myCamera;
 	
 	float maxSpeed;

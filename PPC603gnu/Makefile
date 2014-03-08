@@ -79,7 +79,8 @@ endif
 
 
 #Project Targets
-PROJECT_TARGETS = Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage.out
+PROJECT_TARGETS = Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage.out \
+	 Clifford/$(MODE_DIR)/Clifford.out
 
 
 #Rules
@@ -148,6 +149,10 @@ Clifford_partialImage/$(MODE_DIR)/Objects/DriverStation.o : $(PRJ_ROOT_DIR)/util
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
+Clifford_partialImage/$(MODE_DIR)/Objects/Shooter.o : $(PRJ_ROOT_DIR)/Shooter.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
 OBJECTS_Clifford_partialImage = Clifford_partialImage/$(MODE_DIR)/Objects/Autonomous.o \
 	 Clifford_partialImage/$(MODE_DIR)/Objects/Camera.o \
 	 Clifford_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.o \
@@ -155,7 +160,8 @@ OBJECTS_Clifford_partialImage = Clifford_partialImage/$(MODE_DIR)/Objects/Autono
 	 Clifford_partialImage/$(MODE_DIR)/Objects/OurRobot.o \
 	 Clifford_partialImage/$(MODE_DIR)/Objects/Axis.o \
 	 Clifford_partialImage/$(MODE_DIR)/Objects/Xbox.o \
-	 Clifford_partialImage/$(MODE_DIR)/Objects/DriverStation.o
+	 Clifford_partialImage/$(MODE_DIR)/Objects/DriverStation.o \
+	 Clifford_partialImage/$(MODE_DIR)/Objects/Shooter.o
 
 Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage.out : $(OBJECTS_Clifford_partialImage)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@";rm -f "$@";nmppc $(OBJECTS_Clifford_partialImage) $(IDE_LIBRARIES) | tclsh $(WIND_BASE)/host/resource/hutils/tcl/munch.tcl -c ppc > $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc $(DEBUGFLAGS_Linker) $(CC_ARCH_SPEC) -fdollars-in-identifiers -Wall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES)  -o $(OBJ_DIR)/ctdt.o -c $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X -T $(WIND_BASE)/target/h/tool/gnu/ldscripts/link.OUT -o "$@" $(OBJ_DIR)/ctdt.o $(OBJECTS_Clifford_partialImage) $(IDE_LIBRARIES) $(LIBPATH) $(LIBS)  $(ADDED_LIBPATH) $(ADDED_LIBS) && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
@@ -167,11 +173,103 @@ _clean :: Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage_clean
 Clifford_partialImage/$(MODE_DIR)/Clifford_partialImage_clean : 
 	$(TRACE_FLAG)if [ -d "Clifford_partialImage" ]; then cd "Clifford_partialImage"; rm -rf $(MODE_DIR); fi
 
+
+# Clifford
+ifeq ($(DEBUG_MODE),1)
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -g
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -g
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -g
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -g
+else
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -O2 -fstrength-reduce -fno-builtin
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -O2 -fstrength-reduce -fno-builtin
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -O2 -fstrength-reduce -fno-builtin
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
+Clifford/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -O2 -fstrength-reduce -fno-builtin
+endif
+Clifford/$(MODE_DIR)/% : IDE_INCLUDES = -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/WPILib -I$(WIND_BASE)/target/h/wrn/coreip 
+Clifford/$(MODE_DIR)/% : IDE_LIBRARIES = $(WIND_BASE)/target/lib/WPILib.a 
+Clifford/$(MODE_DIR)/% : IDE_DEFINES = 
+Clifford/$(MODE_DIR)/% : PROJECT_TYPE = DKM
+Clifford/$(MODE_DIR)/% : DEFINES = 
+Clifford/$(MODE_DIR)/% : EXPAND_DBG = 0
+Clifford/$(MODE_DIR)/% : VX_CPU_FAMILY = ppc
+Clifford/$(MODE_DIR)/% : CPU = PPC603
+Clifford/$(MODE_DIR)/% : TOOL_FAMILY = gnu
+Clifford/$(MODE_DIR)/% : TOOL = gnu
+Clifford/$(MODE_DIR)/% : TOOL_PATH = 
+Clifford/$(MODE_DIR)/% : CC_ARCH_SPEC = -mcpu=603 -mstrict-align -mno-implicit-fp -mlongcall
+Clifford/$(MODE_DIR)/% : LIBPATH = 
+Clifford/$(MODE_DIR)/% : LIBS = 
+Clifford/$(MODE_DIR)/% : OBJ_DIR := Clifford/$(MODE_DIR)
+
+Clifford/$(MODE_DIR)/Objects/Clifford/Autonomous.o : $(PRJ_ROOT_DIR)/Autonomous.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+Clifford/$(MODE_DIR)/Objects/Clifford/Camera.o : $(PRJ_ROOT_DIR)/Camera.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+Clifford/$(MODE_DIR)/Objects/Clifford/OperatorControl.o : $(PRJ_ROOT_DIR)/OperatorControl.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+Clifford/$(MODE_DIR)/Objects/Clifford/OurRobot.o : $(PRJ_ROOT_DIR)/OurRobot.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+Clifford/$(MODE_DIR)/Objects/Clifford/Shooter.o : $(PRJ_ROOT_DIR)/Shooter.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+Clifford/$(MODE_DIR)/Objects/Clifford/myArcadeDrive.o : $(PRJ_ROOT_DIR)/myArcadeDrive.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+Clifford/$(MODE_DIR)/Objects/Clifford/util/Axis.o : $(PRJ_ROOT_DIR)/util/Axis.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+Clifford/$(MODE_DIR)/Objects/Clifford/util/DriverStation.o : $(PRJ_ROOT_DIR)/util/DriverStation.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+Clifford/$(MODE_DIR)/Objects/Clifford/util/Xbox.o : $(PRJ_ROOT_DIR)/util/Xbox.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+OBJECTS_Clifford = Clifford/$(MODE_DIR)/Objects/Clifford/Autonomous.o \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/Camera.o \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/OperatorControl.o \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/OurRobot.o \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/Shooter.o \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/myArcadeDrive.o \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/util/Axis.o \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/util/DriverStation.o \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/util/Xbox.o
+
+Clifford/$(MODE_DIR)/Clifford.out : $(OBJECTS_Clifford)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@";rm -f "$@";nmppc $(OBJECTS_Clifford) $(IDE_LIBRARIES) | tclsh $(WIND_BASE)/host/resource/hutils/tcl/munch.tcl -c ppc > $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc $(DEBUGFLAGS_Linker) $(CC_ARCH_SPEC) -fdollars-in-identifiers -Wall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES)  -o $(OBJ_DIR)/ctdt.o -c $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X -T $(WIND_BASE)/target/h/tool/gnu/ldscripts/link.OUT -o "$@" $(OBJ_DIR)/ctdt.o $(OBJECTS_Clifford) $(IDE_LIBRARIES) $(LIBPATH) $(LIBS)  $(ADDED_LIBPATH) $(ADDED_LIBS) && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
+
+Clifford/$(MODE_DIR)/Clifford_compile_file : $(FILE) ;
+
+_clean :: Clifford/$(MODE_DIR)/Clifford_clean
+
+Clifford/$(MODE_DIR)/Clifford_clean : 
+	$(TRACE_FLAG)if [ -d "Clifford" ]; then cd "Clifford"; rm -rf $(MODE_DIR); fi
+
 force : 
 
 DEP_FILES := Clifford_partialImage/$(MODE_DIR)/Objects/Autonomous.d Clifford_partialImage/$(MODE_DIR)/Objects/Camera.d Clifford_partialImage/$(MODE_DIR)/Objects/myArcadeDrive.d \
 	 Clifford_partialImage/$(MODE_DIR)/Objects/OperatorControl.d Clifford_partialImage/$(MODE_DIR)/Objects/OurRobot.d Clifford_partialImage/$(MODE_DIR)/Objects/Axis.d \
-	 Clifford_partialImage/$(MODE_DIR)/Objects/Xbox.d Clifford_partialImage/$(MODE_DIR)/Objects/DriverStation.d
+	 Clifford_partialImage/$(MODE_DIR)/Objects/Xbox.d Clifford_partialImage/$(MODE_DIR)/Objects/DriverStation.d Clifford_partialImage/$(MODE_DIR)/Objects/Shooter.d \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/Autonomous.d Clifford/$(MODE_DIR)/Objects/Clifford/Camera.d Clifford/$(MODE_DIR)/Objects/Clifford/OperatorControl.d \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/OurRobot.d Clifford/$(MODE_DIR)/Objects/Clifford/Shooter.d Clifford/$(MODE_DIR)/Objects/Clifford/myArcadeDrive.d \
+	 Clifford/$(MODE_DIR)/Objects/Clifford/util/Axis.d Clifford/$(MODE_DIR)/Objects/Clifford/util/DriverStation.d Clifford/$(MODE_DIR)/Objects/Clifford/util/Xbox.d
 -include $(DEP_FILES)
 
 
