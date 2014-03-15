@@ -5,7 +5,6 @@
 
 #include "myArcadeDrive.hpp"
 
-
 myArcadeDrive::myArcadeDrive():
 	
 	//Forward declaration of motors
@@ -16,6 +15,7 @@ myArcadeDrive::myArcadeDrive():
 	//m_drive(lMotor, rMotor),
 
 	m_stick(1),
+
 	
 	m_drive(lMotor, rMotor),
 	pot(1),
@@ -32,7 +32,7 @@ void myArcadeDrive::teleop()
 	
 	//drive 
 	m_drive.ArcadeDrive(m_stick.getLeftStickY(), -m_stick.getRightStickX());
-	
+	 
 	if(m_stick.RT())
 	{
 		m_drive.SetMaxOutput(.5);

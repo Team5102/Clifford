@@ -7,7 +7,7 @@
 
 void OurRobot::OperatorControl()
 {
-	//myDrive.m_drive.SetSafetyEnabled(true);
+	myDrive.m_drive.SetSafetyEnabled(true);
 	
 	myCompressor.Start();
 	

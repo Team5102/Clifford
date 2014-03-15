@@ -11,12 +11,12 @@ public:
 	//Called Repeatedly during OperatorControle
 	void teleop();
 	
+	Talon arm, claw, shooter;
+	
 private:
 
 	int maxRotations;
 
-	Talon arm, claw, shooter;
-	
 	Encoder shooterEncoder;
 	
 	Xbox m_stick;

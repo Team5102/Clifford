@@ -6,6 +6,7 @@
 #include "myArcadeDrive.hpp"
 #include "Camera.hpp"
 #include "Shooter.hpp"
+#include "util/DriverStation.hpp"
 
 class OurRobot : public SimpleRobot
 {
@@ -21,9 +22,9 @@ public:
 	void Autonomous();
     void OperatorControl();
     void Test();
+    void RobotInit();
     
     //Unused functions - Don't uncomment these!
-    void RobotInit();
 	//void RobotMain();
 	//void StartCompetition();
 	

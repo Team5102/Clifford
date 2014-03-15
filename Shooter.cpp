@@ -28,7 +28,10 @@ void Shooter::teleop()
 {
 	/* Driver Input (arm & claw) */ 
 	arm.Set(m_stick.getLeftStickY()); //TODO: Add deadband
+	
+
 	claw.Set(m_stick.getRightStickY());
+	
 	
 	/* Limit Switch */
 	if(shooterLimit.Get() == 1)
