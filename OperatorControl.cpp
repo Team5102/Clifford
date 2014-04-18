@@ -15,7 +15,16 @@ void OurRobot::OperatorControl()
 	{
 		myDrive.teleop();
 		myShooter.teleop();
-		
+
+		//TODO: This is so shitty. Remake this in the teleop function!
+		if(myShooter.m_stick.getLeftBumper())
+		{
+			auton = 1;
+		}
+		else if(myShooter.m_stick.getRightBumper())
+		{
+			auton = 2;
+		}
 		Wait(0.005);
 	}
 }

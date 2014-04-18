@@ -19,7 +19,7 @@ void _GLOBAL__I__ZN8OurRobotC2Ev();
 
 void _GLOBAL__I__ZN4XboxC2Ev();
 
-void _GLOBAL__I__Z10printFloatSsf();
+void _GLOBAL__I__Z10printFloatSsfi();
 
 void _GLOBAL__I__ZN7ShooterC2Ev();
 
@@ -84,7 +84,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN8OurRobot15OperatorControlEv,
     _GLOBAL__I__ZN8OurRobotC2Ev,
     _GLOBAL__I__ZN4XboxC2Ev,
-    _GLOBAL__I__Z10printFloatSsf,
+    _GLOBAL__I__Z10printFloatSsfi,
     _GLOBAL__I__ZN7ShooterC2Ev,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
     _GLOBAL__I__ZN9Scheduler9_instanceE,
@@ -127,7 +127,7 @@ void _GLOBAL__D__ZN8OurRobotC2Ev();
 
 void _GLOBAL__D__ZN4XboxC2Ev();
 
-void _GLOBAL__D__Z10printFloatSsf();
+void _GLOBAL__D__Z10printFloatSsfi();
 
 void _GLOBAL__D__ZN7ShooterC2Ev();
 
@@ -182,7 +182,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN8OurRobot15OperatorControlEv,
     _GLOBAL__D__ZN8OurRobotC2Ev,
     _GLOBAL__D__ZN4XboxC2Ev,
-    _GLOBAL__D__Z10printFloatSsf,
+    _GLOBAL__D__Z10printFloatSsfi,
     _GLOBAL__D__ZN7ShooterC2Ev,
     _GLOBAL__D__ZN9Scheduler9_instanceE,
     _GLOBAL__D_wpi_error_s_ModuleIndexOutOfRange,

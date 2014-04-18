@@ -1,0 +1,11 @@
+string OPERATORCONTROL_ROUTINE = "teleop";
+Routine teleop = OperatorControl, "ananke.as";
+
+Joystick controller = 1;
+Talon frontLeft = 1;
+Talon frontRight = 2;
+RobotDrive drive = "frontLeft", "frontRight";
+Talon arm = 5;
+Talon shooter = 6;
+Encoder encod = 2, 3;
+AnalogChannel pot = 1;

@@ -30,6 +30,7 @@ public:
 	
 private:
 
+    
 	myArcadeDrive myDrive;
 	
 	Shooter myShooter;
@@ -40,6 +41,11 @@ private:
 	
 	float maxSpeed;
 	
+	unsigned int auton;
+	
+	bool isMoving;
+	
+	Timer autonTimer;
 };
 
 #endif // OURROBOT_H_

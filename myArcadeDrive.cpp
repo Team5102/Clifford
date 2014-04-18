@@ -25,6 +25,7 @@ myArcadeDrive::myArcadeDrive():
 {
 	toggle = false;
 	m_drive.SetExpiration(0.5);
+	shifter.Set(DoubleSolenoid::kReverse);
 }
 
 void myArcadeDrive::teleop()
@@ -43,7 +44,7 @@ void myArcadeDrive::teleop()
 	}
 	else if(m_stick.getButtonSelect())
 	{
-		printFloat("Pot", pot.Get());
+		//Pass
 	}
 	else if(m_stick.getButtonA())
 	{
@@ -55,8 +56,4 @@ void myArcadeDrive::teleop()
 	}
 }	
 
-myArcadeDrive::~myArcadeDrive()
-{
-	
-}
-	
+myArcadeDrive::~myArcadeDrive(){}

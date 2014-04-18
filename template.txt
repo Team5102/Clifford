@@ -1,0 +1,181 @@
+
+float pArm;
+bool enabledArm;
+float setpointArm;
+
+float pShooter;
+float iShooter;
+float dShooter;
+float totalE;
+float prevE;
+bool enabledShooter;
+float setpointShooter;
+float maxOut;
+float minOut;
+Timer shooterTimer;
+
+void onInit(Robot@ this)
+{
+	pArm = 0.04;
+	enabledArm = false;
+	setpointArm = 0.0f;
+	pShooter = 0.004f;
+	enabledShooter = false;
+	setpointShooter = 0.0f;
+	totalE = 0.0f;
+	maxOut = 1.0f;
+	minOut = -1.0f;
+	prevE = 0.0f;
+
+	//distance is in cm
+	encod.setDistancePerPulse(((3.14159*1.52)/250)*1.0/3.0); // Pi * (diameter)/# of ticks (250) * Gear Ratio
+	encod.reset();
+	encod.start();
+	shooterTimer.start();
+
+}
+
+void onOperatorControl(Robot@ this)
+{
+	drive.arcadeDrive(controller.getY(), 0);	
+	encodShooter();
+	//shooter.set(0.3);
+	
+}
+
+void encodShooter()
+{
+	driverStation.clear();
+	pShooter = 0.03;
+	iShooter = 0.01;
+	dShooter = 0.001;
+	encod.setDistancePerPulse(((3.14159*1.52)/250)*1.0/3.0);
+	float distance = encod.getDistance();
+	driverStation.print(1, "dist: " + distance + " cm");
+	driverStation.print(2, "setpoint: " + setpointShooter + " cm");
+	if(enabledShooter)
+	{
+		driverStation.print(3, "enabled  ");
+
+	}
+	else
+	{
+		driverStation.print(3, "disabled");
+
+	}
+	
+	if(enabledShooter)
+	{
+		float dt = shooterTimer.get();
+		//driverStation.print(5, "dt: " + dt);
+		shooterTimer.reset();
+		float error = setpointShooter - distance;
+
+
+		if(iShooter != 0)
+		{
+		    float potentialIGain = (totalE + error * dt)*iShooter;
+		    if (potentialIGain < maxOut)
+		    {
+		        if (potentialIGain > minOut)
+		            totalE += error * dt;
+		        else
+		            totalE = minOut/iShooter;
+		    }
+		    else
+		    {
+		        totalE = maxOut/iShooter;
+		    }
+		}
+
+		float deltaE = 0.0f;
+		if(dt != 0)
+			deltaE = (error - prevE)/dt;
+
+		driverStation.print(4, "val: " + (error*pShooter + totalE*iShooter));
+		driverStation.print(5, "error: " + error);
+		shooter.set(-error*pShooter - totalE*iShooter + dShooter*deltaE);
+		prevE = error;
+
+	}
+
+	if(controller.getButton(1))
+	{
+		setpointShooter = 5;
+		enabledShooter = true;
+
+	}
+	else if(controller.getButton(2))
+	{
+		setpointShooter = 20;
+		enabledShooter = true;
+
+	}
+	else if(controller.getButton(3))
+	{
+		shooter.set(0);
+		enabledShooter = false;
+	
+	}
+	else if(controller.getButton(4))
+	{
+		encod.reset();
+		encod.start();
+		totalE = 0;
+		prevE = 0;
+		shooterTimer.start();
+		enabledShooter = false;
+
+	}
+
+}
+
+void potArm()
+{
+	driverStation.clear();
+	pArm = 0.004;
+	float voltage = pot.getVoltage();
+	float angle = voltage*720;
+	driverStation.print(0, "angle: " + angle);
+	driverStation.print(1, "setpoint: " + setpointArm);
+	if(enabledArm)
+	{
+		driverStation.print(2, "enabled  ");
+
+	}
+	else
+	{
+		driverStation.print(2, "disabled");
+
+	}
+	
+	if(enabledArm)
+	{
+		float error = setpointArm - angle;
+
+		//720 degrees to a volt
+		driverStation.print(3, "val: " + (error*pArm));
+		driverStation.print(4, "error: " + error);
+		arm.set(error*pArm);
+
+	}
+
+	if(controller.getButton(1))
+	{
+		setpointArm = 360*8;
+		enabledArm = true;
+
+	}
+	else if(controller.getButton(2))
+	{
+		setpointArm = 360*1;
+		enabledArm = true;
+
+	}
+	else if(controller.getButton(3))
+	{
+		arm.set(0);
+		enabledArm = false;
+	
+	}
+}

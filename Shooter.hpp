@@ -1,5 +1,7 @@
 #include "WPILib.h"
+
 #include "util/Xbox.hpp"
+#include "util/DriverStation.hpp"
 
 class Shooter
 {
@@ -13,22 +15,26 @@ public:
 	
 	Talon arm, claw, shooter;
 	
+	Xbox m_stick;
+	
 private:
 
 	int maxRotations;
-
-	Encoder shooterEncoder;
 	
-	Xbox m_stick;
+	bool derp;
+	//Encoder shooterEncoder;
+	
+	//AnalogChannel armPot;
 	
 	Timer reload;
 	
-	//DoubleSolenoid clawPiston;
-		
-	Solenoid clawPiston, clawPiston2;
+	DoubleSolenoid clawPiston;
 	
+	Solenoid shooterSol;
+	
+	//LimitSwitch
 	DigitalInput shooterLimit;
 	
-	bool hasBall, isLoaded;
+	bool hasBall, isLoaded, isArmed;
 	
 };
